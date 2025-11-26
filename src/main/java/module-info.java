@@ -13,6 +13,7 @@ module com.itcelaya.cosmosexplorerdemo {
     // --- AÑADE ESTOS PARA JACKSON ---
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.annotation;
+    requires java.desktop;
 
 
     opens com.itcelaya.cosmosexplorerdemo.DTO to com.fasterxml.jackson.databind, com.google.gson, javafx.base;
