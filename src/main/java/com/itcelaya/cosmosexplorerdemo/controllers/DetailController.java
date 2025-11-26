@@ -19,35 +19,30 @@ public class DetailController {
     @FXML private ImageView imgPlanet;
 
     public void setPlanetData(SolarSystemDto.Body body) {
-        // Texto Básico
+
         lblName.setText(body.getEnglishName());
         lblType.setText(body.getBodyType());
         lblGravity.setText(body.getGravity() + " m/s²");
 
-        // Manejo de datos que podrían ser nulos
+
         lblRadius.setText(body.getMeanRadius() != null ? body.getMeanRadius() + " km" : "N/D");
         lblDensity.setText(body.getDensity() != null ? body.getDensity() + " g/cm³" : "N/D");
         lblDiscovery.setText(body.getDiscoveredBy() != null && !body.getDiscoveredBy().isEmpty() ? body.getDiscoveredBy() : "Antigüedad");
         lblDate.setText(body.getDiscoveryDate() != null && !body.getDiscoveryDate().isEmpty() ? body.getDiscoveryDate() : "-");
 
-        // IMAGEN
-        // --- CÓDIGO SEGURO PARA CARGAR IMAGEN ---
         String imagePath = "/com/itcelaya/cosmosexplorerdemo/images/SolarSystem/" + body.getId().toLowerCase() + ".png";
 
-        // 1. Intentamos obtener el archivo
         java.io.InputStream stream = getClass().getResourceAsStream(imagePath);
 
-        // 2. Verificamos si existe (si stream no es nulo)
         if (stream != null) {
             imgPlanet.setImage(new Image(stream));
         } else {
             System.out.println("⚠️ No se encontró la imagen: " + imagePath);
-            // Opcional: Poner una imagen por defecto si quieres
              imgPlanet.setImage(new Image(getClass().getResourceAsStream("/com/itcelaya/cosmosexplorerdemo/images/SolarSystem/default.jpg")));
         }
     }
 
-    // --- ESTE ES EL MÉTODO QUE FALTABA O ESTABA INVISIBLE ---
+
     @FXML
     void closeWindow() {
         // Obtiene la escena actual (la ventana) y la cierra
