@@ -16,6 +16,7 @@ public class menuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SceneManager.loadVbox(windowContainer, "fxml/spaceXAPI-view.fxml");
     }
+
     @FXML
     void loadSpaceX() {
         SceneManager.loadVbox(windowContainer, "fxml/spaceXAPI-view.fxml");
@@ -34,9 +35,13 @@ public class menuController implements Initializable {
     @FXML
     void loadSolarSystem() {
 
+        SceneManager.loadVbox(windowContainer, "fxml/solar-system-view.fxml");
     }
+
     @FXML
     void exitProgram() {
         SceneManager.launchNewWindow("fxml/exit-view.fxml");
     }
 }
+
+
