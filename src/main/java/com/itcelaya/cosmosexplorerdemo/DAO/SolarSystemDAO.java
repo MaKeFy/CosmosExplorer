@@ -17,7 +17,7 @@ public class SolarSystemDAO {
             stmt.setString(1, body.getId());
             stmt.setString(2, body.getEnglishName());
             stmt.setString(3, body.getBodyType());
-            // Manejo de nulos por si la gravedad no viene en el JSON
+
             if (body.getGravity() != null) {
                 stmt.setFloat(4, body.getGravity());
             } else {
